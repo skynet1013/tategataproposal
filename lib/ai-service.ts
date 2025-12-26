@@ -37,7 +37,7 @@ export async function generateProposal(data: any): Promise<Proposal> {
             imagePrompt: "Close up of face, emotional expression",
             imageUrl: isHorror
                 ? "/mock/horror_2.png"
-                : "https://placehold.co/600x1066/e8f4fa/333?text=5-20s:+Intro+Setup"
+                : "/mock/romance_1.png"
         },
         {
             id: 3,
@@ -51,7 +51,7 @@ export async function generateProposal(data: any): Promise<Proposal> {
             imagePrompt: "Mid shot, tension rising, mysterious atmosphere",
             imageUrl: isHorror
                 ? "/mock/horror_3.png"
-                : "https://placehold.co/600x1066/d4e4ff/333?text=20-45s:+Rising+Action"
+                : "/mock/romance_1.png"
         },
         {
             id: 4,
@@ -65,7 +65,7 @@ export async function generateProposal(data: any): Promise<Proposal> {
             imagePrompt: "High angle, dramatic lighting, intense emotion",
             imageUrl: isHorror
                 ? "/mock/horror_4.png"
-                : "https://placehold.co/600x1066/ffd1dc/333?text=45-70s:+Climax"
+                : "/mock/romance_1.png"
         },
         {
             id: 5,
@@ -78,7 +78,7 @@ export async function generateProposal(data: any): Promise<Proposal> {
             imagePrompt: "Fade out, text overlay, final impression",
             imageUrl: isHorror
                 ? "/mock/horror_5.png"
-                : "https://placehold.co/600x1066/fff0f5/333?text=70-90s:+Happy+Ending"
+                : "/mock/romance_1.png"
         }
     ]
 
