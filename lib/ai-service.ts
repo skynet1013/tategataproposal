@@ -50,7 +50,7 @@ export async function generateProposal(data: any): Promise<Proposal> {
             ],
             imagePrompt: "Mid shot, tension rising, mysterious atmosphere",
             imageUrl: isHorror
-                ? "https://placehold.co/600x1066/000000/FFF?text=20-45s:+Rising+Action"
+                ? "/mock/horror_3.png"
                 : "https://placehold.co/600x1066/d4e4ff/333?text=20-45s:+Rising+Action"
         },
         {
@@ -77,7 +77,7 @@ export async function generateProposal(data: any): Promise<Proposal> {
             ],
             imagePrompt: "Fade out, text overlay, final impression",
             imageUrl: isHorror
-                ? "https://placehold.co/600x1066/000000/FF0000?text=70-90s:+CLIFFHANGER"
+                ? "/mock/horror_5.png"
                 : "https://placehold.co/600x1066/fff0f5/333?text=70-90s:+Happy+Ending"
         }
     ]
