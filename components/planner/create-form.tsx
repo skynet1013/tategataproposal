@@ -40,6 +40,7 @@ const planSchema = z.object({
     title: z.string().optional(),
     genre: z.enum(["romance", "suspense", "horror", "comedy"]),
     targetAudience: z.string().min(1, "Target audience is required"),
+    duration: z.string().min(1, "Duration is required"),
     characters: z.array(
         z.object({
             name: z.string().min(1, "Name required"),
@@ -61,6 +62,7 @@ export function CreatePlanForm() {
         defaultValues: {
             title: "",
             targetAudience: "",
+            duration: "60",
             characters: [{ name: "", description: "" }],
             additionalInfo: "",
         },
@@ -80,7 +82,12 @@ export function CreatePlanForm() {
         setTimeout(() => {
             setIsLoading(false)
             // Redirect to proposal page (mock ID)
-            router.push(`/proposal/mock-id?genre=${data.genre}`)
+            const params = new URLSearchParams()
+            params.set("genre", data.genre)
+            if (data.title) params.set("title", data.title)
+            params.set("duration", data.duration)
+
+            router.push(`/proposal/mock-id?${params.toString()}`)
         }, 2000)
     }
 
@@ -136,18 +143,43 @@ export function CreatePlanForm() {
 
                             <FormField
                                 control={form.control}
-                                name="targetAudience"
+                                name="duration"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>ターゲット視聴者層</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="例：Z世代、社会人" {...field} />
-                                        </FormControl>
+                                        <FormLabel>動画の長さ</FormLabel>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger>
+                                                    <SelectValue placeholder="長さを選択" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                <SelectItem value="30">30秒</SelectItem>
+                                                <SelectItem value="60">60秒</SelectItem>
+                                                <SelectItem value="90">90秒</SelectItem>
+                                                <SelectItem value="120">120秒</SelectItem>
+                                                <SelectItem value="180">180秒</SelectItem>
+                                            </SelectContent>
+                                        </Select>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
                         </div>
+
+                        <FormField
+                            control={form.control}
+                            name="targetAudience"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>ターゲット視聴者層</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="例：Z世代、社会人" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">

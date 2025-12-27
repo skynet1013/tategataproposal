@@ -22,11 +22,13 @@ export default function ProposalPage() {
         // Reconstruct input from URL params for demo purposes
         const genre = searchParams.get("genre") || "romance"
         const title = searchParams.get("title")
+        const duration = searchParams.get("duration") || "60"
 
         // Simulate fetching/generating based on ID/Params
         generateProposal({
             genre,
             title,
+            duration,
             targetAudience: "Z世代", // Mock defaults if not passed
             viralGoal: "retention",
             characters: [{ name: "主人公", description: "メインキャラクター" }]
