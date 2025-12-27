@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Sparkles, History, Clapperboard } from "lucide-react"
+import { ArrowRight, Sparkles, History, Clapperboard, Layers } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -31,12 +31,17 @@ export default function Home() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/create">
-                <Button size="lg" className="h-12 px-8 text-lg">
+                <Button size="lg" className="h-12 px-8 text-lg shadow-lg shadow-primary/20 transition-all hover:scale-105 hover:shadow-xl">
                   企画を作成する <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/history">
+              <Link href="/templates">
                 <Button variant="outline" size="lg" className="h-12 px-8 text-lg">
+                  <Layers className="mr-2 h-5 w-5" /> 企画書テンプレート
+                </Button>
+              </Link>
+              <Link href="/history">
+                <Button variant="ghost" size="lg" className="h-12 px-8 text-lg">
                   履歴を見る
                 </Button>
               </Link>
